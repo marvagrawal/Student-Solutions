@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sudent Solution Portal</title>
+  <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
+  <style>
+    body {
+      font-family:sans-serif;
+      background: rgb(0,71,171);
+      min-height: 100vh;
+      background-color: rgba(0,71,171,1);
+ 
+      margin: 0;
+      padding: 20px;
+      color: #F1F1F2;
+    }
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      
+background: linear-gradient(159deg, rgba(0,51,102,1) 0%, rgba(15,82,186,1) 100%);
+height: 50vh;
+width: 50vw;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+    }
+    input, textarea, button {
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      background: rgb(8,146,208);
+      background: linear-gradient( #62cff4 and #2c67f2);
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+    
+ 
+      background: linear-gradient(159deg, rgba(176,224,230,1) 0%, rgba(70,130,180,1) 100%);
+    }
+    .hidden {
+      display: none;
+    }
+    .tabs {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 20px;  
+    }
+    .tabs button {
+      flex: 1;
+      background-color: #00333f;
+      color: #F1F1F2;
+      margin: 0 5px;
+    }
+    .tabs button.active {
+      background-color: #A1D6E2;
+    }
+    h2{
+      font-family:sans-serif;
+      color: #F1F1F2;
+    }
+    .issue {
+      margin-bottom: 20px;
+      padding: 10px;
+      border: 1px solid #A1D6E2;
+      border-radius: 5px;
+      background-image: linear-gradient( #0084ff);
+    }
+    .comment {
+      margin-top: 10px;
+      padding: 5px;
+      border-left: 2px solid rgb(77, 77, 77);
+    }
+  </style>
+</head>
+<body>
+  <div id="auth-page" class="container">
+    <h2 id="hh">Login/Register</h2>
+    <input type="email" id="auth-email" placeholder="Email">
+    <input type="password" id="auth-password" placeholder="Password">
+    <button onclick="login()">Login</button>
+    <button onclick="register()">Register</button>
+  </div>
+
+  <div id="issue-page" class="container hidden">
+    <b><h2>Submit an Issue</h2>
+    <textarea id="issue-text" placeholder="Describe your issue here..."></textarea>
+    <button onclick="submitIssue()">Submit Issue</button>
+    <button onclick="logout()">Logout</button>
+
+    <div class="tabs">
+      <button id="all-issues-tab" class="active" onclick="showTab('all-issues')">All Issues</button>
+      <button id="my-issues-tab" onclick="showTab('my-issues')">My Issues</button>
+    </div>
+
+    <div id="all-issues" class="issues-container"></div>
+    <div id="my-issues" class="issues-container hidden"></div>
+  </div>
+</b>
+  <script src="main.js">
+   
+  </script>
+</body>
+</html>
